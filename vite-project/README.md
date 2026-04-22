@@ -1,16 +1,72 @@
-# React + Vite
+# TO-DO App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React-based To-Do application built with Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Add Tasks**: Enter a task title and description to add new items to your to-do list.
+- **View Tasks**: Display all current tasks with their titles and descriptions.
+- **Delete Tasks**: Remove tasks from the list, which are then moved to the "Recently Deleted" section.
+- **Recently Deleted**: View tasks that have been recently deleted.
 
-## React Compiler
+## Setup Instructions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js (version 14 or higher)
+- npm or yarn
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Installation
+
+1. Clone the repository or navigate to the project directory:
+   ```
+   cd vite-project
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+### Running the Application
+
+1. Start the development server:
+   ```
+   npm run dev
+   ```
+
+2. Open your browser and navigate to `http://localhost:5173` (or the port shown in the terminal).
+
+### Building for Production
+
+To build the app for production:
+```
+npm run build
+```
+
+To preview the production build:
+```
+npm run preview
+```
+
+### Linting
+
+Run the linter to check for code issues:
+```
+npm run lint
+```
+
+## Project Structure
+
+```
+vite-project/
+├── src/
+│   ├── App.jsx          # Main app component
+│   ├── main.jsx         # Entry point
+│   └── feature/
+│       └── body.jsx     # Main body component with to-do functionality
+├── index.html
+├── package.json
+├── vite.config.js
+└── eslint.config.js
+```
