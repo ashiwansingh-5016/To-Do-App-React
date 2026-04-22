@@ -26,14 +26,13 @@ function Body(){
     const Complete = (index)=>{
         setComplete([...Completed , object[index]])
         setObject(object.filter((_, i) => i !== index));
-         
     }
     return (
         <div>
             <input value={input} onChange={(e)=>setInput(e.target.value)}></input>
             <input value={disc_input} onChange={(e)=>setDisc_input(e.target.value)}></input>
-            <button onClick={addValue}>Add Work</button>
-            <input onChange={(e) => setSearch(e.target.value) }></input>
+            <button onClick={addValue}> Add Work </button>
+            <input value={search} onChange={(e) => setSearch(e.target.value) }></input>
             
             <div>
 
@@ -47,7 +46,9 @@ function Body(){
                 <h3>Working</h3>
                 {object.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
                 <h1>Filtered Data</h1>
-                {filteredData.map((e) => (<div> {e.title} - {e.Discription} </div>))}
+                {search.length > 0 && (<div><h1>Filtered Data</h1>{filteredData.map((e, index) => (<div key={index}> {e.title} - {e.Discription} </div>))}
+    </div>
+)}
 
             </div>
         </div>
