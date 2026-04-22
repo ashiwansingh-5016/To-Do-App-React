@@ -7,9 +7,9 @@ function Body(){
     const [object , setObject]=useState([]) ;
     const [recent, setRecent] = useState([]);
     const [Completed, setComplete] = useState([]);
+    const [search, setSearch] = useState("");
 
-
-
+    const filteredData = object.filter((item) =>item.title.toLowerCase().includes(search.toLowerCase()) || item.Discription.toLowerCase().includes(search.toLowerCase()));
 
 
     const addValue = ()=>{
@@ -28,21 +28,27 @@ function Body(){
         setObject(object.filter((_, i) => i !== index));
          
     }
-
     return (
         <div>
             <input value={input} onChange={(e)=>setInput(e.target.value)}></input>
             <input value={disc_input} onChange={(e)=>setDisc_input(e.target.value)}></input>
             <button onClick={addValue}>Add Work</button>
+            <input onChange={(e) => setSearch(e.target.value) }></input>
             
             <div>
-            {object.map((e , index)=><div key={index}>{e.title}-{e.Discription}<button onClick={()=>Delete(index)}>Delete</button><input type="checkbox" onChange={()=>Complete(index)}></input></div>)}
-            <h3>Recently Deleted</h3>
-            {recent.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
-            <h3>Completed</h3>
-            {Completed.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
-            <h3>Working</h3>
-            {object.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
+
+
+
+                {object.map((e , index)=><div key={index}>{e.title}-{e.Discription}<button onClick={()=>Delete(index)}>Delete</button><input type="checkbox" onChange={()=>Complete(index)}></input></div>)}
+                <h3>Recently Deleted</h3>
+                {recent.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
+                <h3>Completed</h3>
+                {Completed.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
+                <h3>Working</h3>
+                {object.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
+                <h1>Filtered Data</h1>
+                {filteredData.map((e) => (<div> {e.title} - {e.Discription} </div>))}
+
             </div>
         </div>
     )
