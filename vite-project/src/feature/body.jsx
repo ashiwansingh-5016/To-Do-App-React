@@ -32,22 +32,18 @@ function Body(){
     return (
         <div>
             <input value={input} onChange={(e)=>setInput(e.target.value)}></input>
-            <input value={input} onChange={(e)=>setDisc_input(e.target.value)}></input>
+            <input value={disc_input} onChange={(e)=>setDisc_input(e.target.value)}></input>
             <button onClick={addValue}>Add Work</button>
             
-            
-            {object.map((e , index)=>
-            <div key={index}>{e.title}-{e.Discription}
-            <button onClick={()=>Delete(index)}>Delete</button>
-            <input type="checkbox" onChange={()=>Complete(index)}></input>
-            </div>
-            )}
+            <div>
+            {object.map((e , index)=><div key={index}>{e.title}-{e.Discription}<button onClick={()=>Delete(index)}>Delete</button><input type="checkbox" onChange={()=>Complete(index)}></input></div>)}
             <h3>Recently Deleted</h3>
             {recent.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
             <h3>Completed</h3>
             {Completed.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
             <h3>Working</h3>
             {object.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
+            </div>
         </div>
     )
 }
