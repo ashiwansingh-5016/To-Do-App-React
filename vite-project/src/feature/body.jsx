@@ -46,7 +46,7 @@ function Body(){
                 <h3>Working</h3>
                 {object.map((e, index) => (<div key={index}>{e.title} - {e.Discription}</div>))}
                 <h1>Filtered Data</h1>
-                {search.length > 0 && (<div><h1>Filtered Data</h1>{filteredData.map((e, index) => (<div key={index}> {e.title} - {e.Discription} </div>))}
+                {search.length > 0 && (<div>{filteredData.map((e, index) => (<div key={index}> {e.title} - {e.Discription} </div>))}
     </div>
 )}
 
