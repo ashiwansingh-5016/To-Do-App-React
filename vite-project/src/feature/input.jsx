@@ -5,13 +5,24 @@ function Input (){
     const [input , setInput] = useState("")
     const [description , setDescription] = useState("")
     const [object , setObject] = useState([])
-    
+    const [wantedit , setEdit] = useState(null)
+
 
     const addItem = () =>{
         if (input.trim()==="" || description==="") return;
+
+        setEdit(null)
         setObject([...object , {title : input , work : description}])
         setInput("")
         setDescription("")
+    }
+    
+
+
+    const edit = (index) => {
+        setEdit(index);
+        setInput(object[index].title)
+        setDescription(object[index].work)
     }
 
     return (
@@ -25,7 +36,12 @@ function Input (){
             </div>
             <div>
                 <h1>Working On</h1>
-                {object.map((e , index)=> <div key={index}> {e.title} - {e.work} </div>)}
+                {object.map((e , index)=>
+                <>
+                <div key={index}>{e.title}-{e.work}
+                <button onClick={()=>edit(index)}>Edit</button>
+                </div>
+                </>)}
             </div>
         </div>
     )
