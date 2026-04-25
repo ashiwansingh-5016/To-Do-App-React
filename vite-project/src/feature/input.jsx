@@ -4,8 +4,8 @@ function Input (){
 
     const [input , setInput] = useState("")
     const [description , setDescription] = useState("")
-
     const [object , setObject] = useState([])
+    
 
     const addItem = () =>{
         if (input.trim()==="" || description==="") return;
@@ -24,7 +24,8 @@ function Input (){
 
             </div>
             <div>
-            {object.map((e , index)=><div key={index}>{e.title}</div>)}
+                <h1>Working On</h1>
+                {object.map((e , index)=> <div key={index}> {e.title} - {e.work} </div>)}
             </div>
         </div>
     )
