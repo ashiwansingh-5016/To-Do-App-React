@@ -1,10 +1,10 @@
 
-import Body from "./feature/body.jsx"
+import Input from "./feature/input.jsx"
 
 
 function App(){
     return (
-        <Body />
+        <Input />
     )
 }
 
