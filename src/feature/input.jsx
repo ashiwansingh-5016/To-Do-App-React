@@ -1,11 +1,5 @@
 import {useState} from "react"
-import Delete from "./delete.jsx"
-
-
-
-
-
-
+// import Delete from "./delete.jsx"
 
 
 
@@ -15,6 +9,7 @@ function Input (){
     const [description , setDescription] = useState("")
     const [wantedit , setEdit] = useState(null)
     const [object , setObject] = useState([])
+    const [recently , setRecent] = useState([])
 
 // Adding Element and Updating It 
     const addItem = () =>{
@@ -26,6 +21,8 @@ function Input (){
             work: description
         };
         setObject(updated);
+        setDescription("")
+        setInput("")
         setEdit(null);
     }
         else{
@@ -43,6 +40,20 @@ function Input (){
         setInput(object[index].title)
         setDescription(object[index].work)
     }
+// Delete object from arrey
+
+
+
+    const deleted = (index) => {
+        const item = object[index]
+        setRecent([...recently  , item])
+        const newArr = object.filter((_ , i)=> i !== index)
+        setObject(newArr)
+    }
+
+
+
+
 
     return (
         <div>
@@ -58,11 +69,16 @@ function Input (){
                 <>
                 <div key={index}>{e.title}-{e.work}
                 <button onClick={()=>edit(index)}>Edit</button>
-
+                <button onClick={()=> deleted(index)}>Delete</button>
                 </div>
                 </>)}
             </div>
-            <Delete />
+            <h1>Recently Deleted</h1>
+            {recently.map((e , index)=><div>
+                <p key={index}>{e.title} - {e.work}</p>
+            </div>)}
+
+
         </div>
     )
 
