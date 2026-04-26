@@ -9,12 +9,24 @@ function Input (){
 
 
     const addItem = () =>{
-        if (input.trim()==="" || description==="") return;
+        if (input.trim()==="" || description.trim()==="")  return ;
 
+
+        if (wantedit !== null) {
+        const updated = [...object];
+        updated[wantedit] = {
+            title: input,
+            work: description
+        };
+        setObject(updated);
+        setEdit(null);
+    }
+        else{
         setEdit(null)
         setObject([...object , {title : input , work : description}])
         setInput("")
         setDescription("")
+        }
     }
     
 
@@ -31,8 +43,7 @@ function Input (){
                 <h1>Adding Things</h1>
                 <input value={input} onChange={(e)=>setInput(e.target.value)}></input>
                 <input value={description} onChange={(e)=>setDescription(e.target.value)}></input>
-                <button onClick={addItem}>Addd</button>
-
+                <button onClick={addItem}>{(wantedit !== null)? "Update" : "Add"}</button>
             </div>
             <div>
                 <h1>Working On</h1>
