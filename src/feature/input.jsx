@@ -10,6 +10,7 @@ function Input (){
     const [wantedit , setEdit] = useState(null)
     const [object , setObject] = useState([])
     const [recently , setRecent] = useState([])
+    const [search , setSearch] = useState("")
 
 // Adding Element and Updating It 
     const addItem = () =>{
@@ -53,6 +54,16 @@ function Input (){
 
 
 
+// Searching the object
+    const filteredItems = object.filter((item) =>
+    item.title.toLowerCase().includes(search.toLowerCase()) ||
+    item.work.toLowerCase().includes(search.toLowerCase())
+);
+
+
+
+
+
 
 
     return (
@@ -66,17 +77,26 @@ function Input (){
             <div>
                 <h1>Working On</h1>
                 {object.map((e , index)=>
-                <>
                 <div key={index}>{e.title}-{e.work}
                 <button onClick={()=>edit(index)}>Edit</button>
                 <button onClick={()=> deleted(index)}>Delete</button>
-                </div>
-                </>)}
+                </div>)}
             </div>
             <h1>Recently Deleted</h1>
             {recently.map((e , index)=><div>
                 <p key={index}>{e.title} - {e.work}</p>
             </div>)}
+
+            <div>
+                <input value={search} onChange={(e)=> setSearch(e.target.value)}></input>
+            </div>
+            <>
+            {filteredItems.map((e, index) => (
+                <div key={index}>
+                    {e.title} - {e.work}
+                </div>
+            ))}
+            </>
 
 
         </div>
