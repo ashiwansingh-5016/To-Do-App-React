@@ -1,28 +1,30 @@
-# Todo App
+# TO-DO App
 
-A simple and interactive Todo application built with React and Vite.
+A simple and interactive Todo application built with React and Vite. Manage your tasks efficiently with features like adding, editing, deleting, and searching todos.
 
 ## Features
 
 - ✅ Add new todo items with title and description
 - ✅ Edit existing todo items
-- ✅ View all your todos in a clean list
+- ✅ Delete todo items with recently deleted history
+- 🔍 Search through todos by title or description
 - 🔄 Real-time updates
 - 📱 Responsive design
 
 ## Technologies Used
 
-- **React** - Frontend framework
-- **Vite** - Build tool and development server
+- **React** - Frontend framework for building user interfaces
+- **Vite** - Fast build tool and development server
 - **JavaScript (ES6+)** - Programming language
 - **CSS** - Styling (via React components)
+- **ESLint** - Code linting and formatting
 
 ## Installation
 
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd vite-project
+   cd "TO - DO -app"
    ```
 
 2. Install dependencies:
@@ -37,17 +39,47 @@ A simple and interactive Todo application built with React and Vite.
 
 4. Open your browser and navigate to `http://localhost:5173`
 
+## Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build the project for production
+- `npm run preview` - Preview the production build locally
+- `npm run lint` - Run ESLint for code linting
+
 ## Usage
 
 1. **Adding a Todo:**
-   - Enter a title in the first input field
-   - Enter a description in the second input field
+   - Enter a title in the "Title" input field
+   - Enter a description in the "Description" input field
    - Click the "Add" button
 
 2. **Editing a Todo:**
    - Click the "Edit" button next to any todo item
    - Modify the title and description in the input fields
    - Click "Update" to save changes
+
+3. **Deleting a Todo:**
+   - Click the "Delete" button next to any todo item
+   - The deleted item will appear in the "Recently Deleted" section
+
+4. **Searching Todos:**
+   - Use the search input to filter todos by title or description
+   - Results update in real-time as you type
+
+## Project Structure
+
+```
+TO - DO -app/
+├── src/
+│   ├── App.jsx          # Main app component
+│   ├── main.jsx         # App entry point
+│   └── feature/
+│       └── input.jsx    # Todo input and list component
+├── index.html           # HTML template
+├── vite.config.js       # Vite configuration
+├── package.json         # Project dependencies and scripts
+└── README.md           # Project documentation
+```
 
 3. **Viewing Todos:**
    - All your todos are displayed in the "Working On" section
