@@ -66,21 +66,6 @@ A simple and interactive Todo application built with React and Vite. Manage your
    - Use the search input to filter todos by title or description
    - Results update in real-time as you type
 
-## Project Structure
-
-```
-TO - DO -app/
-├── src/
-│   ├── App.jsx          # Main app component
-│   ├── main.jsx         # App entry point
-│   └── feature/
-│       └── input.jsx    # Todo input and list component
-├── index.html           # HTML template
-├── vite.config.js       # Vite configuration
-├── package.json         # Project dependencies and scripts
-└── README.md           # Project documentation
-```
-
 3. **Viewing Todos:**
    - All your todos are displayed in the "Working On" section
    - Each todo shows its title and description
@@ -88,17 +73,18 @@ TO - DO -app/
 ## Project Structure
 
 ```
-vite-project/
+TO - DO -app/
 ├── src/
 │   ├── App.jsx              # Main app component
 │   ├── main.jsx             # App entry point
 │   └── feature/
-│       ├── input.jsx        # Todo input and list component
-│       └── delete.jsx       # Delete functionality (in development)
+│       ├── input.jsx        # Todo input, list, and management component
+│       └── input.css        # Styles for todo components
 ├── index.html               # HTML template
-├── package.json             # Project dependencies
+├── package.json             # Project dependencies and scripts
 ├── vite.config.js           # Vite configuration
-└── README.md                # This file
+├── eslint.config.js         # ESLint configuration
+└── README.md               # Project documentation
 ```
 
 ## Available Scripts
